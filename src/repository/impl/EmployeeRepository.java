@@ -34,6 +34,7 @@ public class EmployeeRepository extends BaseRepository<Employee, Integer> {
         return employees;
     }
 
+    @Override
     public Employee findById(Integer id) {
         try (Connection connection = JdbcConnection.connect();
              PreparedStatement statement = connection.prepareStatement(Queries.FIND_EMPLOYEE_BY_ID)) {
