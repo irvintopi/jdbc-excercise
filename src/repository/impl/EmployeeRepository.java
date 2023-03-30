@@ -67,10 +67,13 @@ public class EmployeeRepository extends BaseRepository<Employee, Integer> {
          *  If the employee exists then the method should instead update the employee
          *
          */
+
+        //checking if employee exists and updating
         Boolean saved = false;
         if (update(employee) != null) {
             saved = true;
         } else {
+            //adding employee with prepared statement
             int rows = 0;
             try (Connection connection = JdbcConnection.connect();
                  PreparedStatement statement = connection.prepareStatement(Queries.ADD_EMPLOYEE)) {
@@ -155,7 +158,7 @@ public class EmployeeRepository extends BaseRepository<Employee, Integer> {
             }
         } else {
             // If the employee to be updated does not exist
-            System.out.println("Could not update employee with ID: " + employee.getId() + ". Employee not found.");
+            System.out.println("Employee with ID: " + employee.getId() + " not found.");
             return null;
         }
         return rows;

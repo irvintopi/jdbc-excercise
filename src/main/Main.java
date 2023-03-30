@@ -10,7 +10,7 @@ public class Main {
     public static void main(String[] args) {
         EmployeeRepository repository = new EmployeeRepository();
 
-        boolean exists1 = repository.exists(1003);
+        boolean exists1 = repository.exists(1002);
         System.out.println("Employee with given id exists: " + exists1);
 
         Employee e1 = new Employee();
